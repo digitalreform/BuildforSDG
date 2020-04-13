@@ -82,4 +82,4 @@ def estimator(data):
   population=earningPopulation, 
   dailyIncome=data.get("region").get("avgDailyIncomeInUSD"))
 
-  return '{' + f'"data" : {json.dumps(data)}, "impact" : {impact}, "severeImpact" : {severeImpact}' + '}'
+  return '{' + f'"data" : {data}, "impact" : {impact}, "severeImpact" : {severeImpact}' + '}'
