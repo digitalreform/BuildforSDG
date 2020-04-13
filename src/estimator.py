@@ -54,8 +54,7 @@ class Estimate():
 def estimator(data):
   
   #Convert JSON to Python
-  data = json.loads(data)
-  
+ 
   #Convert time to days
   if data.get("periodType") == "days":
     dayperiod = data.get("timeToElapse")
