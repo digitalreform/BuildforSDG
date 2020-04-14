@@ -57,6 +57,7 @@ def estimator(data):
   #Convert JavaScript Object to Python
   quote_keys_regex = r'([\{\s,])(\w+)(:)'
   data = re.sub(quote_keys_regex, r'\1"\2"\3', str(data))
+  data = data.replace("'",'"')
   data = json.loads(data)
   
   #Convert time to days
