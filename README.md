@@ -1,3 +1,5 @@
+# Test does not use JSON, attempts to use JavaScript Raw Object Notation without importing JSON as object first.
+
 # #BuildForSDG Cohort-1 Python Assessment
 
 > Build an overly simplified COVID-19 infection impact estimator
