@@ -1,5 +1,6 @@
 import math
 import json
+import re
 
 class Estimate():
   '''
@@ -53,8 +54,11 @@ class Estimate():
 
 def estimator(data):
   
-  #Convert JSON to Python
- 
+  #Convert JavaScript Object to Python
+  quote_keys_regex = r'([\{\s,])(\w+)(:)'
+  data = re.sub(quote_keys_regex, r'\1"\2"\3', data)
+  data = json.loads(data)
+  
   #Convert time to days
   if data.get("periodType") == "days":
     dayperiod = data.get("timeToElapse")
@@ -82,4 +86,4 @@ def estimator(data):
   population=earningPopulation, 
   dailyIncome=data.get("region").get("avgDailyIncomeInUSD"))
 
-  return '{' + f'"data" : {data}, "impact" : {impact}, "severeImpact" : {severeImpact}' + '}'
+  return '{' + f'"data" : {json.dumps(data)}, "impact" : {impact}, "severeImpact" : {severeImpact}' + '}'
