@@ -43,13 +43,15 @@ class Estimate():
   def __repr__(self):
     #To return data in JSON String format
 
-    return '{' + f'"currentlyInfected" : {self.currentlyInfected},\
+    returnString = '{' + f'"currentlyInfected" : {self.currentlyInfected},\
 "infectionsByRequestedTime" : {self.infectionsByRequestedTime},\
 "severeCasesByRequestedTime" : {self.severeCasesByRequestedTime},\
 "hospitalBedsByRequestedTime" : {self.hospitalBedsByRequestedTime},\
 "casesForICUByRequestedTime" : {self.casesForICUByRequestedTime},\
 "casesForVentilatorsByRequestedTime" : {self.casesForVentilatorsByRequestedTime},\
 "dollarsInFlight" : {self.dollarsInFlight}' + '}'
+
+    return returnString
 
 
 def estimator(data):
@@ -87,4 +89,6 @@ def estimator(data):
   population=earningPopulation, 
   dailyIncome=data.get("region").get("avgDailyIncomeInUSD"))
 
-  return '{' + f'"data" : {json.dumps(data)}, "impact" : {impact}, "severeImpact" : {severeImpact}' + '}'
+  returnString = '{' + f'"data" : {json.dumps(data)}, "impact" : {impact}, "severeImpact" : {severeImpact}' + '}'
+
+  return returnString
